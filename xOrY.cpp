@@ -74,7 +74,7 @@ void Tic_Tac_Toe::step (){
 }
 
 void Tic_Tac_Toe::display (){
-    std::system("clear");
+    std::system("clear");                         /*for Windows std::system("cls");*/
     std::cout<< "_______"<<std::endl;
     for (int i = 0; i < 3; i++)
     {
