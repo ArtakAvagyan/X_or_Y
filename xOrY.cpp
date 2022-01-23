@@ -1,13 +1,7 @@
 #include <iostream>
 
-class Tic_Tac_Toe{
-private:
-    char board[3][3];
-    int count;
-    int x;
-    int y;
-    std::string player1;
-    std::string player2;
+class Tic_Tac_Toe
+{
 public:
     Tic_Tac_Toe();
     void play ();
@@ -26,7 +20,15 @@ private:
     bool check_vertical ();
     bool check_horizontal ();
     bool valid_step();
+private:
+    char board[3][3];
+    int count;
+    int x;
+    int y;
+    std::string player1;
+    std::string player2;
 };
+
 bool Tic_Tac_Toe::valid_step()
 {
     if(x > 2 || x < 0 || y > 2 || y < 0 ){return true;}
@@ -38,18 +40,20 @@ Tic_Tac_Toe::Tic_Tac_Toe(){
     clear_board();
     count = 0;
 }
+
 void Tic_Tac_Toe::win_game()
 {
     if (count %2 == 1 ){
         std::cout << player1 +  " You Win Game Bro" << std::endl;
-    }else {
+    } else {
         std::cout << player2 +  " You Win Game Bro" << std::endl;
     }
-    if(count == 9)
+    if (count == 9)
     {
         std::cout<< "bro normal xaxa senc chexav !!!" << std::endl;
     }
 }
+
 void Tic_Tac_Toe::clear_board(){
     for (int i = 0; i < 3; i++)
     {
@@ -63,7 +67,7 @@ void Tic_Tac_Toe::clear_board(){
 void Tic_Tac_Toe::step (){
     if (count %2 == 1 ){
         std::cout << player1 +  " Your turn ." << std::endl;
-    }else {
+    } else {
         std::cout << player2 +  " Your turn ." << std::endl;
     }
     do{
@@ -74,7 +78,7 @@ void Tic_Tac_Toe::step (){
 }
 
 void Tic_Tac_Toe::display (){
-    std::system("clear");                         /*for Windows std::system("cls");*/
+    std::system( "clear" );                         /*for Windows std::system("cls");*/
     std::cout<< "_______"<<std::endl;
     for (int i = 0; i < 3; i++)
     {
@@ -141,31 +145,29 @@ void Tic_Tac_Toe::play(){
         if (tmp == "YES"){
             clear_board();
             play();
-        }
-        else 
-        {
+        } else {
             return ;
         }
     }
     bool Tic_Tac_Toe::check_diagonal ()
     {
-        if(board[0][0]== board[1][1] && board[1][1] == board[2][2] && board[2][2] != ' '){return true;}
-        else if(board[0][2]== board[1][1] && board[1][1] == board[2][0] && board[2][0] != ' '){return true;}
+        if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[2][2] != ' ') { return true; }
+        else if ( board[0][2]== board[1][1] && board[1][1] == board[2][0] && board[2][0] != ' ' ) { return true; }
         return false ;
     }
     bool Tic_Tac_Toe::check_horizontal ()
     {
-        for(int i = 0 ; i < 3 ; i++)
+        for ( int i = 0 ; i < 3 ; i++)
         {
-            if(board[i][0]==board[i][1] && board[i][1]== board[i][2] && board[i][2] != ' '){return true;}
+            if ( board[i][0]==board[i][1] && board[i][1]== board[i][2] && board[i][2] != ' ' ) { return true; }
         }
         return false ;
     }
     bool Tic_Tac_Toe::check_vertical ()
     {
-        for(int i = 0 ; i < 3 ; i++)
+        for ( int i = 0 ; i < 3 ; i++ )
         {
-            if(board[0][i]==board[1][i] && board[1][i]== board[2][i] && board[2][i] != ' '){return true;}
+            if ( board[0][i]==board[1][i] && board[1][i]== board[2][i] && board[2][i] != ' ' ) { return true; }
         }
         return false ;
     }
